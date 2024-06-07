@@ -21,6 +21,13 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
     }));
   };
 
+  const checkedBox = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserMutation((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.checked
+    }));
+  };
+
   const onFormSubmit =(event:React.FormEvent) => {
     event.preventDefault();
 
@@ -74,7 +81,7 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
           id="active"
           className="form-check-input px-2"
           style={{cursor: "pointer"}}
-          onChange={changeUser}
+          onChange={checkedBox}
           checked={UserMutation.active}
         />
       </div>
