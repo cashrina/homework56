@@ -1,7 +1,44 @@
-const UserForm = () => {
+import React, {useState} from 'react';
+import {User, UserMutation} from '../../types.ts';
+
+interface UserFormProps {
+  onSubmit: (user: User) => void;
+}
+
+const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
+  const [UserMutation, setUserMutation] = useState<UserMutation>({
+    id: '',
+    name: '',
+    email: '',
+    active: false,
+    role: 'user',
+  });
+
+  const changeUser = (event: React.ChangeEvent<HTMLInputElement| HTMLSelectElement>) => {
+    setUserMutation((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value
+    }));
+  };
+
+  const onFormSubmit =(event:React.FormEvent) => {
+    event.preventDefault();
+
+    onSubmit({
+      ...UserMutation,
+      id: Math.random().toString(),
+    });
+    setUserMutation({
+      id: '',
+      name: '',
+      email: '',
+      active: false,
+      role: 'user',
+    });
+  };
   return (
-    <form>
-      <h4>Add new dish</h4>
+    <form onSubmit={onFormSubmit}>
+      <h4>Add new User</h4>
       <div className="form-group mb-3">
         <label htmlFor="name" className="form-label">Name</label>
         <input
@@ -11,6 +48,9 @@ const UserForm = () => {
           id="name"
           placeholder="Enter name"
           className="form-control px-2"
+          style={{cursor: "pointer"}}
+          onChange={changeUser}
+          value={UserMutation.name}
         />
       </div>
       <div className="form-group mb-3">
@@ -21,21 +61,27 @@ const UserForm = () => {
           id="email"
           placeholder="Enter Email"
           className="form-control px-2"
+          style={{cursor: "pointer"}}
+          onChange={changeUser}
+          value={UserMutation.email}
         />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="active" className="form-check-label px-2">Active</label>
         <input
-          required
           type="checkbox"
           name="active"
           id="active"
           className="form-check-input px-2"
+          style={{cursor: "pointer"}}
+          onChange={changeUser}
+          checked={UserMutation.active}
         />
       </div>
       <div className="form-group">
-        <label htmlFor="active">Active</label>
-        <select className="form-select" id="role">
+        <label htmlFor="role">Active</label>
+        <select className="form-select" id="role" style={{cursor: "pointer"}} onChange={changeUser}
+                value={UserMutation.role}>
           <option value="user">User</option>
           <option value="editor">Editor</option>
           <option value="admin">Admin</option>

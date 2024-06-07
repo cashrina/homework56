@@ -3,7 +3,7 @@ export interface User {
   name: string;
   email: string;
   active: boolean;
-  role: number;
+  role: string;
 }
 
 export interface UserMutation {
