@@ -14,11 +14,10 @@ const [user, setUser] = useState<User[]>([
     setUser((prev)=> [...prev, item]);
   };
 
-
   return (
-    <div className="container">
+    <div className="container" style={{ fontFamily: "Oswald"}}>
       <div className="row mt-2">
-        <div className="col-4">
+        <div className="col-4 mx-4">
           <UserForm onSubmit={addUser} />
         </div>
         <div className="col-4">

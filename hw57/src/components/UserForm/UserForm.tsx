@@ -45,9 +45,9 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
   };
   return (
     <form onSubmit={onFormSubmit}>
-      <h4>Add new User</h4>
-      <div className="form-group mb-3">
-        <label htmlFor="name" className="form-label">Name</label>
+      <h4 className="fs-2 mb-5">Add new User</h4>
+      <div className="form-group mb-4">
+        <label htmlFor="name" className="form-label mb-2">Name</label>
         <input
           required
           type="text"
@@ -60,8 +60,8 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
           value={UserMutation.name}
         />
       </div>
-      <div className="form-group mb-3">
-        <label htmlFor="email">Email</label>
+      <div className="form-group mb-4">
+        <label htmlFor="email" className="mb-2">Email</label>
         <input
           type="email"
           name="email"
@@ -73,20 +73,20 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
           value={UserMutation.email}
         />
       </div>
-      <div className="form-group mb-3">
-        <label htmlFor="active" className="form-check-label px-2">Active</label>
+      <div className="form-group mb-4">
+        <label htmlFor="active" className="form-check-label mb-2">Active</label>
         <input
           type="checkbox"
           name="active"
           id="active"
-          className="form-check-input px-2"
+          className="form-check-input ms-2"
           style={{cursor: "pointer"}}
           onChange={checkedBox}
           checked={UserMutation.active}
         />
       </div>
-      <div className="form-group">
-        <label htmlFor="role">Active</label>
+      <div className="form-group mb-4">
+        <label htmlFor="role" className="mb-2">Active</label>
         <select className="form-select" id="role" style={{cursor: "pointer"}} onChange={changeUser}
                 value={UserMutation.role}>
           <option value="user">User</option>
@@ -94,7 +94,7 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
           <option value="admin">Admin</option>
         </select>
       </div>
-      <button type="submit" className="mt-3 btn btn-primary">Create User</button>
+      <button type="submit" className="mt-3 btn btn-outline-primary">Create User</button>
     </form>
   );
 };

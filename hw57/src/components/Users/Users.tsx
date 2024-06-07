@@ -9,7 +9,7 @@ interface UserProps {
 const Users: React.FC<UserProps> = ({userItem}) => {
   return (
     <>
-      <h4>Users</h4>
+      <h4 className="fs-2 mb-5">Users</h4>
       {userItem.map((user) => (
         <UserItem key={user.id} userItem={user} />
       ))}
