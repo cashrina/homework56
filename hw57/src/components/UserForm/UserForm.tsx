@@ -86,7 +86,7 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
         />
       </div>
       <div className="form-group mb-4">
-        <label htmlFor="role" className="mb-2">Active</label>
+        <label htmlFor="role" className="mb-2">Role</label>
         <select className="form-select" id="role" style={{cursor: "pointer"}} onChange={changeUser}
                 value={UserMutation.role}>
           <option value="user">User</option>
