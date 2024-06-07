@@ -11,7 +11,7 @@ const Users: React.FC<UserProps> = ({userItem}) => {
     <>
       <h4>Users</h4>
       {userItem.map((user) => (
-        <UserItem key={user.id} users={user} />
+        <UserItem key={user.id} userItem={user} />
       ))}
     </>
   );
